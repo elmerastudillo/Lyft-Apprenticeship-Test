@@ -19,6 +19,13 @@ if sys.version_info[0] >= 3:
 # ======
 
 
+@app.route('/', methods=['GET'])
+def get():
+    """Returns a string greeting from the Get request."""
+    response = 'Welcome to Elmer Astudillo\'s amazing string parser. To continue add /test to the url. Built for Lyft!'
+    return response
+
+
 @app.route('/test', methods=['POST'])
 def post():
     """
@@ -26,10 +33,10 @@ def post():
     returns either an exception or the original string parsed. (Every 3rd character)
     """
     if request.headers['Content-Type'] != 'application/json':
-        error_value = "Unsupported Media Type"
+        error_value = "Content-Type must be of type JSON."
         return error_handling(error_value, 415)
     json = request.json
-    string_to_cut = json['string-to-cut']
+    string_to_cut = json['string_to_cut']
 
     if string_to_cut == None:
         error_value = "User must provide a valid string in the body of the post request."
@@ -41,7 +48,7 @@ def post():
         elif len(string_to_cut) < 3:
             error_value = "User must provide a string with more than 3 characters."
             return error_handling(error_value, 400)
-        parsedString = parseString(string_to_cut)
+        parsedString = parse_string(string_to_cut)
         json = jsonify(return_string=parsedString)
         return(json, 200, None)
 
@@ -57,7 +64,7 @@ def error_handling(error_response, status_code):
     return(json, status_code, None)
 
 
-def parseString(org_string):
+def parse_string(org_string):
     """Returns a new string containing every 3rd character of the original str."""
     counter = 1
     str_builder = []
