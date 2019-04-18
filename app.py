@@ -6,13 +6,18 @@
 ######################################################################################
 
 from flask import Flask, request, json, jsonify
+import sys
 
 app = Flask(__name__)
 
+# Assign str to unicode to handle string naming based on python version
+if sys.version_info[0] >= 3:
+    unicode = str
 
 # ======
 # Routes
 # ======
+
 
 @app.route('/test', methods=['POST'])
 def post():
@@ -25,11 +30,11 @@ def post():
         return error_handling(error_value, 415)
     json = request.json
     string_to_cut = json['string-to-cut']
+
     if string_to_cut == None:
         error_value = "User must provide a valid string in the body of the post request."
         return error_handling(error_value, 400)
     else:
-        print(type(string_to_cut))
         if type(string_to_cut) is not unicode:
             error_value = "User must provide input of string type."
             return error_handling(error_value, 400)
@@ -44,6 +49,7 @@ def post():
 # =======
 # Helpers
 # =======
+
 
 def error_handling(error_response, status_code):
     """Returns a error response json object and status code."""
