@@ -16,8 +16,7 @@ curl -X POST https://lyft-interview-test.herokuapp.com/test --data
 ## Demo
 To use the Heroku live demo open your favorite command line and paste the following:
 ```
-curl -X POST https://lyft-apprentice-test.herokuapp.com/test --data '{"string_to_cut": "ineedalyft!"}' 
--H 'Content-Type: application/json'
+curl -X POST https://lyft-apprentice-test.herokuapp.com/test --data '{"string_to_cut": "ineedalyft!"}' -H 'Content-Type: application/json'
 ```
 Note: Change the value assigned to `string_to_cut` to test with your own input.
 
@@ -49,8 +48,7 @@ flask run
 ```
 To test the application use the following command:
 ```
-curl -X POST http://127.0.0.1:5000/test --data '{"string_to_cut": "ineedalyft!"}' 
--H 'Content-Type: application/json'
+curl -X POST http://127.0.0.1:5000/test --data '{"string_to_cut": "ineedalyft!"}' -H 'Content-Type: application/json'
 ```
 
 
