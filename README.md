@@ -31,7 +31,7 @@ https://github.com/elmerastudillo/Lyft-Apprenticeship-Test.git
 ```
 sudo virtualenv venv-name
 ```
-3. Install Flask with the following commands, replace `venv-name` with your chosen virtual environment name.
+3. Activate your virtual environment and install Flask with the following commands, replace `venv-name` with your chosen virtual environment name.
  ```
 source venv-name/bin/activate
 sudo pip install Flask
