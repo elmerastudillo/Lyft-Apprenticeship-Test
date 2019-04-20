@@ -21,7 +21,7 @@ curl -X POST https://lyft-apprentice-test.herokuapp.com/test --data '{"string_to
 Note: Change the value assigned to `string_to_cut` to test with your own input.
 
 ## Installation
-We use [pip](https://pip.pypa.io/en/stable/) for package management and [virtualenv]((https://virtualenv.pypa.io/en/latest/)) for our virtual environment. This should be installed before continuing.
+We use [pip](https://pip.pypa.io/en/stable/) for package management and [virtualenv](https://virtualenv.pypa.io/en/latest/) for our virtual environment. This should be installed before continuing.
 
 1. Clone the project with:
 ```
